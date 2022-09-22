@@ -1,7 +1,8 @@
+import com.ReverseString;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.Description;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -39,12 +40,10 @@ public class ReverseStringTest {
         });
     }
 
+    // Test to check reverseString
     @Test
     public void testReverseString( ){
-
         Assert.assertEquals(obj.getReverseText(actualResult).toString(),expectedResult);
-
-
     }
 
 
