@@ -2,8 +2,7 @@ import org.junit.Assert;
 
 import java.util.Stack;
 
-public class Assignment1 {
-
+public class ReverseString {
     public static boolean checkNotSpecialCharacter(int asciiVal) {
         boolean check = false;
 
@@ -17,19 +16,18 @@ public class Assignment1 {
 
         return check;
     }
-
     public static StringBuffer getReverseText(String str) {
-        StringBuffer reverseText=new StringBuffer();
+        StringBuffer reverseText = new StringBuffer();
         Stack<Character> st = new Stack<Character>();
 
         for (int i = 0; i < str.length(); ++i) {
-            boolean b =checkNotSpecialCharacter(str.charAt(i)) ;
+            boolean b = checkNotSpecialCharacter(str.charAt(i));
 
-            if ((!checkNotSpecialCharacter(str.charAt(i))) && str.charAt(i)!=' ')
+            if ((!checkNotSpecialCharacter(str.charAt(i))) && str.charAt(i) != ' ')
                 st.push(str.charAt(i));
             else {
                 while (st.empty() == false) {
-                   reverseText.append(st.pop());
+                    reverseText.append(st.pop());
                 }
 
                 reverseText.append(str.charAt(i));
@@ -40,22 +38,28 @@ public class Assignment1 {
             reverseText.append(st.pop());
         }
 
-        System.out.println(reverseText);
+        //System.out.println(reverseText);
 
         return reverseText;
     }
+}
 
-    public static void main(String args[]){
 
-    //String text = "Stri_ng;-%   2b$#e reversed";
+class RunnerClass {
+    public static void main(String args[]) {
+
+        ReverseString obj = new ReverseString();
+
+       // String text = "Stri_ng;-%   2b$#e reversed";
         //String text = "_String;-%   $#e2b reve_rsed";
         //String text = "1111";
-     //   String text = "*&^%#$###@!";
-        String text = "";
-    getReverseText(text);
-   // Assert.assertEquals(getReverseText(text).toString(),"irtS_gn;-%   b2$#e desrever");
+          String text = "*&abcd^%#$efgh###@ijklm!";
+        //String text = "";
+        //obj.getReverseText(text);
+        Assert.assertEquals(obj.getReverseText(text).toString(),"irtS_gn;-%   b2$#e desrever");
 
     }
 
 
 }
+
